@@ -31,5 +31,7 @@ rules:
   prettier/prettier: ['error', { endOfLine: 'auto' }]
   react/react-in-jsx-scope: 0
   react/jsx-filename-extension: [1, { extensions: ['.jsx', '.tsx'] }]
+  react/function-component-definition: 0
+  jsx-a11y/label-has-associated-control: 0
   '@typescript-eslint/ban-types': 0
   '@typescript-eslint/ban-ts-comment': 0

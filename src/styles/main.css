@@ -1,9 +1,168 @@
 @import './reset.css';
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
+:root {
+  --black: #060b12;
+  --whiteText: #e9e8eb;
+}
+
 body {
-  background-color: #427a5b;
-  color: #fff;
   font-family: 'Montserrat', sans-serif;
+  color: var(--black);
+}
+
+.app {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.container__title {
+  text-align: center;
   font-size: 50px;
+}
+
+.container__form {
+  display: flex;
+  gap: 20px;
+}
+
+.container__input {
+  padding: 10px;
+  border: 1px solid var(--black);
+  border-radius: 10px;
+  flex-grow: 1;
+}
+
+.container__button {
+  font-weight: 700;
+  width: 150px;
+  font-size: 14px;
+  padding: 15px;
+  color: var(--whiteText);
+  background-color: var(--black);
+  border-radius: 10px;
+}
+
+.container__button:hover {
+  opacity: 0.7;
+  transition: 0.2s;
+}
+
+.taskList {
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.5);
+}
+
+.taskList__title {
+  padding: 12px;
+  font-size: 25px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.taskList__task {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+}
+
+.taskList__task:not(:last-child) {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.taskList__menu {
+  font-size: 14px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+  border-top: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.taskList__nav {
+  display: flex;
+  gap: 10px;
+}
+
+.taskList__button {
+  padding: 8px 10px;
+}
+
+.taskList__button:hover {
+  background-color: var(--black);
+  border-radius: 5px;
+  color: #fff;
+}
+
+.taskList__button-active {
+  padding: 8px 10px;
+  border: 1px solid var(--black);
+  border-radius: 5px;
+}
+
+.taskList__cleaner {
+  padding: 8px 10px;
+}
+
+.taskList__cleaner:hover {
+  background-color: var(--black);
+  border-radius: 5px;
+  color: #fff;
+}
+
+.checkbox {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+.custom-checkbox + label {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+}
+.checkbox + label::before {
+  content: '';
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  border: 1px solid #bebebe;
+  border-radius: 50%;
+  margin-right: 0.5em;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 50% 50%;
+}
+
+.checkbox:not(:disabled):not(:checked) + label:hover::before {
+  border-color: #979797;
+}
+
+.checkbox:checked + label::before {
+  background-image: url('../assets/completed.svg');
+  border-color: #979797;
+}
+
+.checkbox:checked ~ .text {
+  color: #979797;
+  text-decoration: line-through;
+}
+
+.empty {
+  margin: 30px 0;
+  text-align: center;
 }
